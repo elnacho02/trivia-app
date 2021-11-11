@@ -1,0 +1,15 @@
+.container{
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container>span{
+    position: absolute;
+    bottom: 15%;
+    font-family:'Courier New', Courier, monospace;
+    color: grey
+}
