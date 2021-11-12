@@ -1,0 +1,73 @@
+h3,h4,h5,h6{
+    margin:0
+}
+
+.container{
+    width: 100%;
+    height: 90vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.podiumContainer{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: row;
+}
+
+.first,.second,.third{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.first{
+    width: 36%;
+    border: 1px solid grey;
+    text-align: center;
+    height: 160px;
+}
+
+.second{
+    height: 120px;
+    width: 32%;
+    border: 1px solid grey;
+    text-align: center;
+}
+
+.third{
+    height: 92px;
+    width: 32%;
+    border: 1px solid grey;
+    text-align: center;
+}
+
+.position{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 30%;
+    align-self: flex-start;
+}
+.name{
+    width: 100%;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.score{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+

@@ -2,8 +2,10 @@
   height: 100vh;
   width: 100%;
   /* background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%); 
-  background-image: linear-gradient(to top, #dfe9f3 0%, white 100%); */
-  background-image: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
+  background-image: linear-gradient(to top, #dfe9f3 0%, white 100%); 
+  background-image: linear-gradient( 358.7deg,  rgba(42,136,157,1) 1.7%, rgba(122,197,214,1) 51.1%, rgba(211,232,242,1) 95.5% );
+   background-image: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);*/
+   background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
 }
 
 .appOrder{
@@ -11,4 +13,17 @@
   height: 90%;
   display: flex;
   flex-direction: row;
+}
+
+.gold{
+  font-size: 23px;
+  color: rgb(255, 230, 0);
+}
+.silver{
+  font-size: 21px;
+  color: rgb(187, 187, 187);
+}
+.bronce{
+  font-size: 19px;
+  color: brown;
 }

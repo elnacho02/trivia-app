@@ -37,7 +37,7 @@ app.use(cookieparser());
 
 
 app.use((req, res, next) => {
- 	console.log(req.session.userId, "desde app.use");
+ 	
   	next();
 });
 
@@ -67,17 +67,25 @@ mongoose.connect('mongodb+srv://nacho:nacho123@cluster0.ok4gh.mongodb.net/myFirs
 const Users = require("./models/Users");
 
 
-app.get('/isLog',(req,res)=>{
-	console.log(req.session.userId, "desde get isLog")
-	 res.json({isLog: req.session.userId})
+app.get('/isLog',async (req,res)=>{
+	
+	 if(req.session.userId){
+		 var user = await Users.findById(req.session.userId).lean();
+		 return res.send(user)
+	 }
+	 else return res.send(false)
 })
 
 
 app.get('/preguntas', async (req, res) => {
-	var preg = await axios("https://opentdb.com/api.php?amount=3&type=multiple")
+	var preg = await axios("https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple")
 				.then(x => x.data.results)
 
 	res.send(preg);
+});
+app.get('/ranking', async (req, res) => {
+	var rank = await Users.find().sort({highScore:-1}).limit(10)
+	res.send(rank);
 });
 app.get('/login', redirectHome, (req, res) => {
   	res.json({redirect: '/login'})
@@ -117,7 +125,7 @@ app.post('/login', redirectHome, async (req, res) => {
   res.json({redirect: '/login'})
   });
 
-  app.post('/logout', (req, res) => {
+  app.get('/logout', (req, res) => {
 	req.session.destroy(err => {
 	  if(err) {
 		return res.json({redirect:'/home'});

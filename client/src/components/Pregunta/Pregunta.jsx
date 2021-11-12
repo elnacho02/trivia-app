@@ -1,36 +1,67 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import s from "./Pregunta.module.css"
-
+import Countdown from "react-countdown"
 
 function Pregunta({preg, setI, i, points, setPoints}) {
     const {shuffle} = require("../utils.js")
     var [arr, setArr] = useState([])
     var [respuesta, setRespuesta] = useState("")
-    
+    var [segundos, setSegundos] = useState("")
+    const getApi = useRef();
     useEffect(() => {
         setArr(shuffle([...preg.incorrect_answers, preg.correct_answer]))
-        setRespuesta("") 
+        setRespuesta("")
+        getApi.current.start();
+        setSegundos(0)
     }, [preg])
     
     useEffect(() => {
-        if(respuesta === preg.correct_answer) setPoints(points + 10)
+        if(respuesta === preg.correct_answer) setPoints(points + 10 * segundos)
     }, [respuesta])
     
     function handleClick(e){
         e.preventDefault()
+        setSegundos(getApi.current.state.timeDelta.seconds)
         if(!respuesta){
             setRespuesta(e.target.value)
         }
+        getApi.current.pause();
      }
+    
      
+     const renderer = ({  seconds, completed }) => {
+        
+        if (completed) {
+          // Render a completed state
+          setRespuesta("none")
+          return (
+            <div>
+                0
+            </div>)
+        } else {
+          // Render a countdown
+           return (
+               <div>
+                   {seconds}
+               </div>
+           )
+        }
+      };
+      
     return (
         <div className={s.container}>
+            <Countdown 
+            date={Date.now() + 15000} 
+            ref={getApi}
+            renderer={renderer}
+            autoStart={false}
+            />
            <div className={s.category}>
             {preg.category} 
            </div>
            
            <div className={s.preg}>
-                {preg.question.replace(/&#039;/g,"'").replace(/&quot;/g,'"')}
+                {preg.question.replace(/&#039;/g,"'").replace(/&quot;/g,'"').replace(/&ldquo;/g, '"').replace(/&rdquo;/g, '"')}
            </div>
            
            <div className={s.resContainer}>

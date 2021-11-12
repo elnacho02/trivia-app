@@ -4,6 +4,7 @@ import axios from "axios"
 import s from "./Play.module.css"
 import Pregunta from '../Pregunta/Pregunta'
 import GameOver from '../GameOver/GameOver'
+import PrePlay from '../PrePlay/PrePlay'
 
  function Play() {
     var [points, setPoints] = useState(0)
@@ -37,13 +38,22 @@ import GameOver from '../GameOver/GameOver'
              <div className={s.preguntas}>
                 <Pregunta  preg={preguntas[i]} setI={setI} i={i} points={points} setPoints={setPoints}/>
              </div>
-             <span>{i+1}/10</span>
+             <div className={s.contador}>
+                <i class={i+1 >= 1 ? "fas fa-circle" : "far fa-circle"}></i>
+                <i class={i+1 >= 2 ? "fas fa-circle" : "far fa-circle"}></i>
+                <i class={i+1 >= 3 ? "fas fa-circle" : "far fa-circle"}></i>
+                <i class={i+1 >= 4 ? "fas fa-circle" : "far fa-circle"}></i>
+                <i class={i+1 >= 5 ? "fas fa-circle" : "far fa-circle"}></i>
+                <i class={i+1 >= 6 ? "fas fa-circle" : "far fa-circle"}></i>
+                <i class={i+1 >= 7 ? "fas fa-circle" : "far fa-circle"}></i>
+                <i class={i+1 >= 8 ? "fas fa-circle" : "far fa-circle"}></i>
+                <i class={i+1 >= 9 ? "fas fa-circle" : "far fa-circle"}></i>
+                <i class={i+1 >= 10 ? "fas fa-circle" : "far fa-circle"}></i>
+             </div>
         </div>
     )
     else return(
-        <div>
-            <button type="" onClick={()=>setGo(2)}>START</button>
-        </div>
+        <PrePlay setGo={setGo} />
     )
 }
 
