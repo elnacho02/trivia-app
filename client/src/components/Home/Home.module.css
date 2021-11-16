@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+
+.container{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    -webkit-animation: cssAnimation 0.5s forwards;
+    animation: cssAnimation 0.5s forwards;
+}
+.saludo{
+    height: 5%;
+    padding: 0px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    font-family: 'Bungee Shade';
+    color: #2f4f5f;
+    background:white;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    gap: 5px;
+}
+.saludo>.resaltar{
+    color: rgb(251,72,83);
+}
+
+.about{
+    background-color: white;
+    margin-top: 2%;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    font-family: 'Nunito';
+}
+.about>h4{
+    font-family: 'Bungee Shade';
+    color: #2f4f5f;
+}
+
+.link{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    margin-top: 1%;
+    gap: 10px;
+}
+.link>a>i{
+    color: rgb(78, 78, 78);
+    font-size: 40px;
+}
+
+@keyframes cssAnimation {
+    0% {opacity: 0;}
+    20% {opacity: 0.2;}
+    30% {opacity: 0.3;}
+    50% {opacity: 0.5;}
+    70% {opacity: 0.7;}
+    100% {opacity: 1;}
+}
+
+@-webkit-keyframes cssAnimation {
+    0% {opacity: 0;}
+    20% {opacity: 0.2;}
+    30% {opacity: 0.3;}
+    50% {opacity: 0.5;}
+    70% {opacity: 0.7;}
+    100% {opacity: 1;}
+}

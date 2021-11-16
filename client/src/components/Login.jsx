@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import { useHistory} from "react-router-dom"
 import s from "./Login.module.css"
-import Navbar from './Navbar';
-const api_base = "http://localhost:3001";
+import axios from "axios"
+
 
 function Login() {
     let history = useHistory()
@@ -11,7 +11,6 @@ function Login() {
         password:"",
         
        })
-    var [isLog, setIsLog] = useState("")
        
        function handleChange(e){
         const value = e.target.value;
@@ -22,21 +21,17 @@ function Login() {
        }
       function handleSubmit(e){
         e.preventDefault()
-        fetch(api_base+"/login",{
-			method: "POST",
-            credentials: "include",
-			headers: {
-				"Content-Type": "application/json" 
-			},
-			body: JSON.stringify({
-				username: info.username,
-                password: info.password
-			})
+        axios("https://trivia-app01.herokuapp.com/login",{
+			method: "post",
+			data: info
 		})
-        .then(x => x.json())
-        .then(data => {
-            if(data.redirect !== "/login")return history.push(data.redirect)
-            else {
+        .then(r => {
+            if(r){
+                console.log(r, "login tok")
+                localStorage.setItem("token", r.data.token);
+                return history.push(r.data.redirect)
+            }
+             else {
                 setInfo({
                     username:"",
                     password:""                
@@ -46,18 +41,33 @@ function Login() {
         })
       }
     useEffect(() => {
-        fetch(api_base+"/isLog",{credentials:"include"})
-        .then(x=>x.json()).then(e => e &&  history.push("/"))
-    }, [])
-
+        axios("https://trivia-app01.herokuapp.com/isLog", {
+			method: "post",
+			data: {
+                token: localStorage.getItem("token")
+            }
+		} )
+        .then(e => e.data &&  history.push("/"))
+    },[])
+    
     return (
         <div className={s.container}>
-            <form onSubmit={handleSubmit}>
-                <input type="text" name="username" value={info.username} placeholder='Username' onChange={(e)=>handleChange(e)} required/>
-                <input type="password" name='password' value={info.password} placeholder='Password' onChange={(e)=>handleChange(e)} required/>
-                <button type='submit'>LOG IN</button>
-                <a href="/user/create">create account</a>
-            </form>
+            <div className={s.side}>
+                
+            </div>
+            <div className={s.formContainer}>
+                <form onSubmit={handleSubmit} className={s.form}>
+                    <h2>Login</h2>
+                    <hr/>
+                    <h5>Username</h5>
+                    <input type="text" name="username" value={info.username} placeholder='Username' onChange={(e)=>handleChange(e)} required autoComplete='off'/>
+                    <h5>Password</h5>
+                    <input type="password" name='password' value={info.password} placeholder='Password' onChange={(e)=>handleChange(e)} required autoComplete='off'/>
+                    <button type='submit'>Login</button>
+                    <a href="/user/create">create account</a>
+                </form>
+            </div>
+            
         </div>
     )
 }

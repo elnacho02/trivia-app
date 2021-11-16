@@ -1,0 +1,42 @@
+.mainContainer{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    background-color: rgba(255,255,255);
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.container>h4{
+    text-align: center;
+    margin-top: 10%;
+    font-family: 'Bungee Shade';
+    color: #3A6073 ;
+    margin: 0;
+    font-size: 1.5rem;
+}
+.botones{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 2%;
+}
+.botones>button{
+    width: 100px;
+    border: none;
+    height: 35px;
+    margin-top: 10px;
+    background-color: rgba(251,72,83,255);
+    color: white;
+    font-family: 'Nunito';
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+

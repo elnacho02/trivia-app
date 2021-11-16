@@ -6,6 +6,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    -webkit-animation: cssAnimation 0.5s forwards;
+    animation: cssAnimation 0.5s forwards;
 }
 
 .container>.contador{
@@ -15,3 +17,20 @@
     gap: 2px;
 }
 
+@keyframes cssAnimation {
+    0% {opacity: 0;}
+    20% {opacity: 0.2;}
+    30% {opacity: 0.3;}
+    50% {opacity: 0.5;}
+    70% {opacity: 0.7;}
+    100% {opacity: 1;}
+}
+
+@-webkit-keyframes cssAnimation {
+    0% {opacity: 0;}
+    20% {opacity: 0.2;}
+    30% {opacity: 0.3;}
+    50% {opacity: 0.5;}
+    70% {opacity: 0.7;}
+    100% {opacity: 1;}
+}

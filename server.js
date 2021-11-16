@@ -20,7 +20,6 @@ mongoose.connect(process.env.CONNECTION_URL, {
 
 
 
-
 app.use(cors())
 app.use(express.urlencoded({ extended: true }));
 

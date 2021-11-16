@@ -41,8 +41,8 @@ function Pregunta({preg, setI, i, points, setPoints}) {
         } else {
           // Render a countdown
            return (
-               <div>
-                   {seconds}
+               <div className={s.contador}>
+                   <h4>{seconds}</h4>
                </div>
            )
         }

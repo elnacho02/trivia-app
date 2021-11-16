@@ -51,7 +51,6 @@
 .play>h3,.rank>h3{
     font-family: 'Nunito';
     font-size: 13px;
-    margin-top: 16px;
 }
 .rank>i{
     color: rgb(233, 218, 0);
@@ -74,8 +73,28 @@
     margin-right: 10px;
     color:#3A6073 
 }
-
-.user>.logout{
+.login:hover{
+    cursor: pointer;
+}
+.logOutContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.avatar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    font-family: 'Nunito';
+}
+.logOutContainer>.logout{
     margin-right: 10px;
     color:#3A6073 
+}
+.logout:hover{
+    cursor: pointer;
 }

@@ -13,7 +13,7 @@ import PrePlay from '../PrePlay/PrePlay'
     var [go,setGo] = useState(1)
    
     async function getPreg(){ 
-        await axios("http://localhost:3001/preguntas",{withCredentials: true}).then(x=>setPreguntas(x.data));
+        await axios("https://trivia-app01.herokuapp.com/preguntas").then(x=>setPreguntas(x.data));
         setI(0)
         setPoints(0)
     }
@@ -23,7 +23,13 @@ import PrePlay from '../PrePlay/PrePlay'
     },[])
     
      function handlePoints(){
-        axios("http://localhost:3001/points/"+points,{withCredentials: true})
+        axios("https://trivia-app01.herokuapp.com/points/",{
+            method: "post",
+            data: {
+                      token: localStorage.getItem("token"),
+                      points: points
+                  }
+          })
     }
     
 

@@ -17,7 +17,7 @@ function Create() {
        }
        function handleSubmit(e){
         e.preventDefault()
-        axios("http://localhost:3001/user/create",{
+        axios("https://trivia-app01.herokuapp.com/user/create",{
             method: "post",    
             data:datos
         }).then(history.push("/login"))
@@ -25,13 +25,20 @@ function Create() {
       }
     return (
         <div className={s.container}>
-            <form onSubmit={handleSubmit}>
-                <h5>Username</h5>
-                <input type="text" value={datos.username} name='username' onChange={(e)=>handleChange(e)} required/>
-                <h5>Password</h5>
-                <input type="text" value={datos.password} name='password' onChange={(e)=>handleChange(e)} required/>
-                <button type='submit'>CREATE ACCOUNT</button>
-            </form>
+            <div className={s.formContainer}>
+                <form onSubmit={handleSubmit} className={s.form}>
+                    <h2>Register</h2>
+                    <hr/>
+                    <h5>Username</h5>
+                    <input type="text" value={datos.username} name='username' onChange={(e)=>handleChange(e)} required autoComplete='off'/>
+                    <h5>Password</h5>
+                    <input type="text" value={datos.password} name='password' onChange={(e)=>handleChange(e)} required autoComplete='off'/>
+                    <button type='submit'>Create</button>
+                </form>
+            </div>
+            {/* <div className={s.side}>
+                
+            </div> */}
         </div>
     )
 }

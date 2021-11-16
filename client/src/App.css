@@ -14,16 +14,9 @@
   display: flex;
   flex-direction: row;
 }
-
-.gold{
-  font-size: 23px;
-  color: rgb(255, 230, 0);
+button{
+  transition: 0.1s all ease-in-out;
 }
-.silver{
-  font-size: 21px;
-  color: rgb(187, 187, 187);
-}
-.bronce{
-  font-size: 19px;
-  color: brown;
+button:hover{
+  transform: scale(1.03);
 }
