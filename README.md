@@ -8,7 +8,7 @@
 
 <p>
 🔴Technologies used:
-  
+  <hr/>
 🔹Front-end: React - CSS Modules
   
 🔹Back-end: Node.js – Express.js - Mongoose - JWT
