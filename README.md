@@ -8,14 +8,21 @@
 
 <p>
 🔴Technologies used:
+  
 🔹Front-end: React - CSS Modules
+  
 🔹Back-end: Node.js – Express.js - Mongoose - JWT
+  
 🔹Database: MongoDB
+  
 🔹Deploy: Heroku(sv), Mongo Atlas (db), Netlify(front)
 
 🔴 Functionalities:
+  
 🔸 Login and Register
+  
 🔸 Play with score functionality
+  
 🔸 Be ranked by your highscore
 
 </p>
